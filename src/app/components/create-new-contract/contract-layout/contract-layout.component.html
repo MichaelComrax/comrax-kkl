@@ -1,0 +1,14 @@
+<div class="header" div fxLayout="column" fxLayoutAlign=" stretch">
+    <div class="header-steppers" fxFlex="20">
+        <div class="stepper-div">
+            <app-stepper [steps]="steps" direction="row" (changStep)="onChangeStep($event)">
+            </app-stepper>
+        </div>
+        <div class="drawer-div" *ngIf="(obs$ | async)">
+            <app-drawer></app-drawer>
+        </div>
+    </div>
+    <div fxFlex="80">
+        <router-outlet></router-outlet>
+    </div>
+</div>

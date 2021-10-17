@@ -1,0 +1,17 @@
+<div class="details-box-item">
+    <div fxFlex='10' class="details-box-item-key">
+        <span class='details-box-division' *ngIf='item.list.length !== 0'>{{item.list[0] ? item.list[0] + " - ":
+            null}}{{item.key}}</span>
+        <span class='details-box-division' *ngIf='item.list.length == 0'>{{item.key}} </span>
+        <mat-icon color='warn' class="only-show-on-hover" (click)='handleDelete()'>clear</mat-icon>
+    </div>
+    <ng-container *ngFor='let list of item.list;let i = index'>
+        <div fxFlex='5' *ngIf='i > 0' class="list">
+            <ng-container>
+                <span class='details-box-unit'>{{list}}</span>
+                <mat-icon color='warn' class="only-show-on-hover" (click)='handleDelete(i)'>clear</mat-icon>
+            </ng-container>
+        </div>
+    </ng-container>
+
+</div>

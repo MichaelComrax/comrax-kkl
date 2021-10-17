@@ -1,0 +1,11 @@
+@import "../../../../../styles/styles.scss";
+
+app-stepper {
+  background-color: color(paper);
+  box-shadow: -3px 0px 12px #00000029;
+  padding: spacing(1) 0 spacing(1) 0;
+}
+
+app-menu {
+  width: 100%;
+}

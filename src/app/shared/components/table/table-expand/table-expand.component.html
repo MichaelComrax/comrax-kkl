@@ -1,0 +1,45 @@
+<mat-table
+  mat-table
+  [dataSource]="$data | async"
+  multiTemplateDataRows
+  dir="rtl"
+>
+  <ng-container
+    [matColumnDef]="column.columnDef"
+    *ngFor="let column of columns"
+  >
+    <mat-header-cell *matHeaderCellDef> {{ column.label }} </mat-header-cell>
+    <app-expand-panel>
+      <mat-cell title *matCellDef="let element">{{
+        element.item[column.columnDef]
+      }}</mat-cell>
+    </app-expand-panel>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <mat-cell *matCellDef="let element" [attr.colspan]="columnDefs.length">
+      <div
+        class="example-element-detail"
+        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+      >
+      {{columnDefs.length}}
+        <ng-container *ngTemplateOutlet="expand"></ng-container>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnDefs"></mat-header-row>
+  <mat-row
+    *matRowDef="let element; columns: columnDefs"
+    class="example-element-row"
+    [class.example-expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element"
+  >
+  </mat-row>
+
+  <tr
+    mat-row
+    *matRowDef="let row; columns: ['expandedDetail']"
+    class="expend-row"
+  ></tr>
+</mat-table>

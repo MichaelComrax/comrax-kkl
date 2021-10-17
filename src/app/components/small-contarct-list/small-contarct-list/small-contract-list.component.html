@@ -1,0 +1,77 @@
+<div class="existing-procedures">
+    <div class="title">
+        <span>הליכים קיימים</span>
+        <button>הוספת הליך חדש &#43;</button>
+    </div>
+    <div class="search">
+        <span>חיפוש הליך</span>
+        <div class="search-input">
+          <app-form-input [question]='searchObject[0]' dir='rtl'
+          [control]='searchFormGroup.formGroup.controls[searchObject[0].key]'>
+      </app-form-input>
+        </div>
+      <div class="radios">
+        <ng-container *ngFor='let input of radios;let index=index'>
+            <app-form-radio [question]='input'
+                [control]='radiosFormGroup.formGroup.controls[input.key]' [checked]='index == 0 ? true : false'></app-form-radio>
+        </ng-container>
+      </div>
+    </div>
+    <div class="main">
+        <app-table 
+        [data]="data"
+        [model]='model'
+        [columns]="columns"
+        [options]="options"
+        [rowSlots]="{status,actions,procedureNumber}"
+        ></app-table>
+    </div>
+    <ng-template #status let-cell="cell">
+        <div class="status" [ngStyle]="{'width':'60%'}">
+          <app-status
+            [height]="0.5"
+            (click)="onNavigate()"
+            appButton
+            [status]="cell.item?.status"
+          ></app-status>
+        </div>
+      </ng-template>
+
+    <ng-template #procedureNumber let-cell="cell">
+        <div class="status">
+          <app-typography color="primery">{{cell.item.procedureNumber}}</app-typography>
+        </div>
+      </ng-template>
+      <ng-template #actions let-cell="cell">
+        <div class="actions" fxLayout="row" fxLayoutAlign="space-between center" fxFlex='100'>
+          <div fxLayout="column" fxLayoutAlign="center end" fxFlex='25'>
+            <button class="action" color="primary" mat-button (click)="onClick(cell)">
+              <app-typography color="primary" [ngStyle]="{' text-decoration':'underline'}">
+               להרחבה
+              </app-typography>
+            </button>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center end" fxFlex='25'>
+            <button class="action" color="primary" mat-button (click)="onClick(cell)">
+              <app-typography color="primary" [ngStyle]="{' text-decoration':'underline'}">
+               עדכון הליך
+              </app-typography>
+            </button>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center end" fxFlex='25'>
+            <button class="action" color="primary" mat-button (click)="onClick(cell)">
+              <app-typography [ngStyle]="{' text-decoration':'underline','color':'#707070'}">
+               בטל הליך
+              </app-typography>
+            </button>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center end" fxFlex='25'>
+            <button class="action" color="primary" mat-button (click)="onClick(cell)">
+              <app-typography [ngStyle]="{' text-decoration':'underline','color':'#707070'}">
+               מחק הליך
+              </app-typography>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+</div>

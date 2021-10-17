@@ -1,0 +1,114 @@
+.details {
+    background: white;
+    span {
+        font-size: 14px;
+    }
+    .section-1,
+    .section-2,
+    .section-3 {
+        padding: 10px;
+    }
+    .section-1 {
+        border-left: 1px solid #e8e8e8;
+    }
+    .section-3 {
+        border-right: 1px solid #e8e8e8;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    app-form-input {
+        padding: 10px;
+    }
+    .details-box{
+        background: #F5F5F5 ;
+        padding: 10px;
+
+    }
+    button {
+        width: 70px;
+        height: 35px;
+        border: none;
+        background: white;
+        border: 2px solid #ffa429;
+        border-radius: 4px;
+    }
+    ::ng-deep .mat-grid-tile-content {
+        justify-content: space-between;
+    }
+    ::ng-deep .radio-button:last-child {
+        margin-right: 10px;
+    }
+    .details-title {
+        font-size: 18px;
+        margin-right: 50px;
+        font-weight: 600;
+    }
+    ::ng-deep .section-1 form {
+        width: 70%;
+    }
+
+    .details-forms {
+        justify-content: space-around !important;
+        align-items: flex-start !important;
+    }
+    .end-buttons {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        margin-left: 100px;
+        * {
+            margin: 10px;
+        }
+        #contine {
+            background: #ffa429;
+            box-shadow: 0px 3px 8px #a7d2ef;
+            color: white;
+        }
+    }
+    ::ng-deep .mat-grid-tile-content {
+        align-items: baseline;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+.details-input-file{
+    padding-bottom: 1.34375em;
+}
+.custom-file-upload {
+    display: flex!important;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    border: 1px solid #FFA429;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: right;
+    span{
+        font-size: 12px;
+    }
+   .icon{       
+        margin-right: 20px;
+        border:  2px solid #FFA429;
+        padding: 7px;
+        position: relative;
+        border-radius: 1px;
+        app-icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            left: 0;
+            ::ng-deep svg {
+                fill: #FFA429;
+            }
+        }
+    }
+}
+
+.details-file-input-slide{
+    padding: 10px;
+}

@@ -1,0 +1,45 @@
+.details-box-item {
+    padding: 5px;
+    .mat-icon{
+        font-size: 13px;
+        position: absolute;
+        left: 0;
+        right: 35px;
+    }
+    .mat-icon:hover{
+        cursor: pointer;
+    }
+    .details-box-item-key{
+        display: flex;
+        position: relative;
+        .only-show-on-hover {
+            visibility: hidden;
+        }
+    }
+    .details-box-item-key:hover .only-show-on-hover{
+        visibility: visible;
+    }
+    span {
+        margin: 5px;
+        padding: 2px;
+        font-size: 13px;
+    }
+    .details-box-border {
+        border-right: 1px solid black;
+    }
+    .list {
+        border-right: 1px solid black;
+        display: flex;
+        position: relative;
+        .mat-icon {
+            right: 10px;
+            bottom: 12px;
+        }
+        .only-show-on-hover {
+            visibility: hidden;
+        }
+    }
+    .list:hover .only-show-on-hover{
+        visibility: visible;
+    }
+}

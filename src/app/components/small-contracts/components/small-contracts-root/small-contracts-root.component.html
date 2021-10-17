@@ -1,0 +1,18 @@
+<app-small-contracts-layout
+  [logos]="logos"
+  [title$]="title$"
+  [status$]="status$"
+  [openIcon]="openIcon"
+  [hideWizardPath]="hideWizardPath"
+  [showStatusPath]="showStatusPath"
+>
+  <app-stepper
+    class="mat-elevation-z6"
+    wizard
+    [steps]="steps"
+    [direction]="direction"
+    (changStep)="onChangeStep($event)"
+  ></app-stepper>
+  <app-menu menu [menu]="menu"> </app-menu>
+  <router-outlet></router-outlet>
+</app-small-contracts-layout>

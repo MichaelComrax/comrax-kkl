@@ -1,0 +1,29 @@
+.header {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 80%;
+    height: 100%;
+  
+}
+.header-steppers {
+    display: flex;
+    justify-content: center;
+    background: transparent linear-gradient(0deg, #ffffff 0%, #fafafa 100%) 0% 0% no-repeat padding-box;
+    height: 100%;
+    position: relative;
+    .stepper-div {
+        flex-basis: 95%;
+    }
+    .drawer-div {
+        flex-basis: 5%;
+        margin-top: 20px;
+    }
+    app-stepper {
+        direction: rtl;
+    }
+    ::ng-deep mat-card.active {
+      svg *{
+          fill: white!important;
+      }
+    }
+}

@@ -1,0 +1,43 @@
+@import "../../../../../styles/styles.scss";
+
+.sidenav-container {
+  height: 100%;
+  // background-image: url("../../../../../assets/images/background.jpg");
+  // background-position: center;
+  // background-repeat: no-repeat;
+}
+
+mat-sidenav-content {
+  margin: 0px !important;
+  overflow-x: hidden;
+}
+
+mat-sidenav {
+
+  &.menu {
+    width: 246px;
+    top: $toolbar-height;
+    height: $content-height;
+    z-index: 100;
+
+
+    div.menu-container {
+      height: inherit;
+      padding-right : spacing(1);
+    }
+
+  }
+
+  &.wizard {
+    background-color: transparent !important;
+    width: 80px;
+    height: 100%;
+    border: none;
+
+    div.stepper-container {
+      height: 100%;
+    }
+  }
+}
+
+

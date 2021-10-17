@@ -1,0 +1,14 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <mat-grid-list cols="6" [rowHeight]="(($tablet | async) ? 16 : 24) + 'rem'" gutterSize="4rem" [dir]="'rtl'">
+    <mat-grid-tile colspan="2" rowspan="2">
+    </mat-grid-tile>
+    <ng-container *ngFor="let card of cards; let i = index">
+      <mat-grid-tile>
+        <app-card-dashboard [card]="card" (onClick)="onCardClick($event)">
+        </app-card-dashboard>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="(i === (cards.length /2) -1)" colspan="2" rowspan="2">
+      </mat-grid-tile>
+    </ng-container>
+  </mat-grid-list>
+</div>

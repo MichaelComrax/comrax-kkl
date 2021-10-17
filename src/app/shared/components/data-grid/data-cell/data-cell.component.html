@@ -1,0 +1,21 @@
+<div fxFill fxLayout="row" fxLayoutAlign="start center">
+
+  <app-typography [classes]="classes" class="label-text" *ngIf="label" [bold]="500"
+    [color]="value ? 'text' : 'disable'">
+    {{ label }}:
+  </app-typography>
+
+  <ng-container [ngSwitch]="type">
+
+    <app-date [size]="size" [value]="value" *ngSwitchCase="'date'"></app-date>
+
+    <app-typography [bold]="600" [size]="size" *ngSwitchCase="'area'">
+      {{ value | area }}
+    </app-typography>
+
+    <app-typography [size]="size" *ngSwitchDefault [bold]="600" [underline]="underline"
+      [color]="value ? 'text' : 'disable'">
+      {{ value }}
+    </app-typography>
+  </ng-container>
+</div>

@@ -1,0 +1,39 @@
+<mat-list-item
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  class="header-list-item"
+  [ngClass]="{ padding }"
+>
+  <app-icon
+    mat-list-icon
+    *ngIf="item.svgUrl"
+    [key]="item.svgUrl"
+    [color]="icon.color"
+    [size]="icon.size"
+  >
+  </app-icon>
+
+  <div mat-line>
+    <app-typography [size]="item.size">
+      {{ item.label }}
+    </app-typography>
+    <ng-container [ngSwitch]="item.type">
+      
+      <ng-container *ngSwitchDefault>
+        <app-typography [size]="item.size">
+          {{ tem.value | format: type }}
+        </app-typography>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'custom'">
+        <ng-container
+          *ngTemplateOutlet="
+            slots[item.key];
+            context: { item: this.item.value }
+          "
+        >
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</mat-list-item>

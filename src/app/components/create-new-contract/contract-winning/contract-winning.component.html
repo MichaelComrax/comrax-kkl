@@ -1,0 +1,25 @@
+<div class="details">
+
+    <span class='details-title'>בחירת הספקים הזוכים</span>
+
+
+    <div class="main">
+        <app-table 
+        [data]="data"
+        [model]='model'
+        [columns]="columns"
+        [options]="options"
+        [rowSlots]="{}"
+        ></app-table>
+
+
+        
+    </div>
+
+
+
+    <div class="end-buttons">
+        <!-- <button (click)='displayDrawerHandler()'>שמור</button>
+        <button id="contine" *ngIf='displayDrawer'>המשך</button> -->
+    </div>
+</div>

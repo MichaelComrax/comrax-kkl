@@ -1,0 +1,28 @@
+<div class="drawer" [ngClass]="{ closed: !isOpen }">
+    <div class="drawer-toggle" (click)="toggleDrawer()" [ngClass]="{ 'closed-toggle': !isOpen }">
+     <app-svg-icon firstIcon="open" secondIcon='clipboard' 
+     SelectedColor='accent-icon'></app-svg-icon>
+ 
+    </div>
+    <div class="content">
+        <h4 class="drawer__headline">מסמכי הליך</h4>
+        <button>הוספת מסמך חדש &#43;</button>
+        <select value='all'>
+            <option>מסמכי ספקים</option>
+            <option>חוזים</option>
+        </select>
+        <mat-divider></mat-divider>
+        <div *ngFor='let item of items' class="drawer-card">
+            <p>{{item.file}}</p>
+            <div class="drawer-card-content">
+                <p>הועלה על ידי : {{item.user}}</p>
+                <p>{{item.time}}</p>
+                <p>{{item.date}}</p>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+
+</div>
+

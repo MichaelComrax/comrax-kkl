@@ -1,0 +1,106 @@
+<div class="details">
+    <span class='details-title'>פרטי התקשרות</span>
+    <div class="details-forms" div fxLayout="row" fxLayoutAlign="center stretch" dir="rtl">
+        <div class="section-1" fxFlex='30'>
+            <div fxLayout="column">
+                <ng-container *ngFor='let input of firstInputs;let index=index'>
+                    <div fxFlex='100' fxLayoutAlign="center baseline">
+                        <app-form-input fxFlex='60' [question]='input'
+                            [control]='formGroup.formGroup.controls[input.key]'>
+                        </app-form-input>
+                    </div>
+                    <div fxFlex='100' fxLayoutAlign="center baseline" *ngIf='index == 0' class="details-input-file">
+                        <label fxFlex='57' for="file-upload" class="custom-file-upload">
+                            <div class="icon">
+                                <app-icon size='1' type="svg" key="open"></app-icon>
+                            </div><span>טען אישור לשכה משפטית</span>
+                        </label>
+                        <input id="file-upload" type="file" />
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="section-2" fxFlex='30' dir="rtl">
+            <div fxLayout='column'>
+                <div fxFlex='100'>
+                    <ng-container *ngFor='let input of secondInputs'>
+                        <app-form-input fxFlex='40' *ngIf="input.key !== 'radio'" [question]='input'
+                            [control]='secondFormGroup.formGroup.controls[input.key]'>
+                        </app-form-input>
+                    </ng-container>
+                </div>
+                <div fxFlex='100'>
+                    <ng-container *ngFor='let input of secondInputs;let index=index'>
+                        <app-form-radio fxFlex='30' *ngIf="input.key === 'radio'" [question]='input'
+                            [control]='secondFormGroup.formGroup.controls[input.key]' [checked]='index == 0 ? true : false'></app-form-radio>
+                    </ng-container>
+                </div>
+                <div fxFlex='100' fxLayoutAlign="center baseline">
+                    <app-form-input fxFlex='40' *ngFor='let input of divisionData' [question]='input'
+                        [control]='divisioGroup.formGroup.controls[input.key]'>
+                    </app-form-input>
+                    <button fxFlex='20' (click)='divisionHandler()'>הוסף</button>
+                </div>
+                <div class='details-box' fxFlex='100' *ngIf='divisionList.length !== 0'>
+                    <ng-container *ngFor='let item of divisionList;let index=index;'>
+                        <app-details-card [item]='item' [index]='index'
+                            (deleteItem)="deleteCardItemHandler($event,'division')"></app-details-card>
+                    </ng-container>
+                </div>
+                <div fxFlex='100' fxLayoutAlign="center baseline">
+                    <app-form-input fxFlex='40' *ngFor='let input of classificationData' [question]='input'
+                        [control]='classificationGroup.formGroup.controls[input.key]'>
+                    </app-form-input>
+                    <button fxFlex='20' (click)='classificationHandler()'>הוסף</button>
+                </div>
+                <div class='details-box' fxFlex='100' *ngIf='classificationList.length !== 0'>
+                    <ng-container *ngFor='let item of classificationList;let index=index'>
+                        <app-details-card [item]='item' [index]='index'
+                            (deleteItem)="deleteCardItemHandler($event,'classification')"></app-details-card>
+                    </ng-container>
+                </div>
+                <div fxFlex='100'>
+                    <mat-slide-toggle [checked]="slideChecked" [(ngModel)]="slideChecked">אישור מנהל חטיבת משאבי אנוש
+                    </mat-slide-toggle>
+                    <br>
+                    <div *ngIf='slideChecked' class="details-file-input-slide" >
+                        <label fxFlex='55' for="file-upload" class="custom-file-upload">
+                            <div class="icon">
+                                <app-icon size='1' type="svg" key="open"></app-icon>
+                            </div><span>טען אישור מנהל חטיבת משאבי אנוש</span>
+                        </label>
+                        <input id="file-upload" type="file" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-3" fxFlex='30' >
+            <div fxLayout='column' fxFlex='100'>
+                <div fxFlex='100'>
+                    <span>אופן בחירת הזוכה</span>
+                </div>
+                <div fxFlex='100' [ngStyle]="{'align-items': 'baseline'}">
+                    <ng-container *ngFor='let input of theerdInputs'>
+                        <span>%</span>
+                        <app-form-input fxFlex='35' [question]='input'
+                            [control]='threedFormGroup.formGroup.controls[input.key]'> </app-form-input>
+                    </ng-container>
+                </div>
+                <div>
+                    <span>היקף משוער של ההתקשרות ( כולל מע"מ כולל כל האופציות )</span>
+                </div>
+                <div [ngStyle]="{'align-items': 'baseline'}">
+                    <app-form-input fxFlex='30' *ngFor='let input of approximateConnection' [question]='input'
+                        [control]='approximateConnectionFormGroup.formGroup.controls[input.key]'>
+                    </app-form-input>
+                    <span>₪</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="end-buttons">
+        <button (click)='displayDrawerHandler()'>שמור</button>
+        <button id="contine" *ngIf='displayDrawer'>המשך</button>
+    </div>
+</div>
